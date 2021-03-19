@@ -30,3 +30,10 @@ Goals
         -- can be categorized as daily, weekly, monthly, or yearly goals
 
 A User can sign up or log in, create goals, edit and delete goals that they created.
+
+Users Controller
+    - routes to signup, view user page, logout
+
+Goals Controller
+    - uses CRUD (create, read, update, delete)
+    - routes to create goals, view goals, edit and delete goals
