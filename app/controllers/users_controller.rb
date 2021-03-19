@@ -1,8 +1,4 @@
 class UsersController < ApplicationController
-    get '/users/:id' do
-        @user = User.find(params[:id])
-        erb :'users/show'
-    end
 
     get '/signup' do
         erb :'users/signup'
@@ -11,5 +7,14 @@ class UsersController < ApplicationController
     post '/signup' do
         @user = User.create(params)
         redirect to "/users/#{@user.id}"
+    end
+
+    get '/login' do
+        erb :'users/login'
+    end
+
+    get '/users/:id' do
+        @user = User.find(params[:id])
+        erb :'users/show'
     end
 end
