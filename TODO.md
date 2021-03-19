@@ -5,6 +5,16 @@
     2. removed database cleaner
     3. unlocked all gem versions 
     4. removed thin 
+    5. change 
+        ActiveRecord::Base.establish_connection(:adapter =>'sqlite3', :database=>'wiki.db')  to 
+        
+        set :database, 
+            {   :adapter => "sqlite3",
+                :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
+                }     
+
+
+
 
 Users 
     - have a username, email, and password
