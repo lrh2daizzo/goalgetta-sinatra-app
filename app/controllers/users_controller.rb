@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
     get '/signup' do
-        erb :'users/signup'
+        if !logged_in?
+            erb :'users/signup'
+        else
+            redirect to '/goals'
+        end
     end
 
     post '/signup' do
@@ -28,4 +32,10 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         erb :'users/show'
     end
+
+   delete '/users/:id' do
+       @user = User.find(params[:id])
+       @user.delete 
+       redirect to "/"
+   end
 end

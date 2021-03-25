@@ -8,8 +8,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    logged_in?
-    erb :home
+    if !logged_in?
+      erb :home
+    else
+      redirect to "/goals"
+    end
+    
   end
 
   helpers do
