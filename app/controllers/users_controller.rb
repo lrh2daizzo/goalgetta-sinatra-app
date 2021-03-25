@@ -9,9 +9,14 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        @user = User.create(params)
-        session[:id] = @user.id
-        redirect to "/users/#{@user.id}"
+        # does not let user signup if any input empty 
+        if params[:username].empty? || params[:email].empty? || params[:password].empty?
+            redirect to "/signup"
+        else
+            @user = User.create(params)
+            session[:id] = @user.id
+            redirect to "/users/#{@user.id}"
+        end
     end
 
     get '/login' do
