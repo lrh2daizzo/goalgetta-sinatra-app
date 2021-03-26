@@ -3,6 +3,10 @@
     <%= goal.title %>
 <% end %>
 
+<h5><a href="/goals/new">Create New Goal</h5>
+<br>
+
+<h4>Goals</h4>
 <%# delete form %>
 <form action="/users/<%= @user.id %>" method="post">
     <input type="hidden" name="_method" id="hidden" value="delete">
