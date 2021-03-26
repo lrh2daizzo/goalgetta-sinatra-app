@@ -9,8 +9,9 @@ class GoalsController < ApplicationController
     end
 
     get '/goals/new' do
-        binding.pry 
-        erb :'goals/new'
+        if logged_in?
+            erb :'goals/new'
+        end
     end
 
     post '/goals' do
