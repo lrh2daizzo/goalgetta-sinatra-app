@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
             @goals = current_user.goals 
             erb :'goals/index'
         else 
-            redirect to ''
+            redirect to '/'
         end
     end
 
@@ -15,6 +15,18 @@ class GoalsController < ApplicationController
     end
 
     post '/goals' do
-      params.to_s
+       if logged_in?
+            unless params[:goals][:title].empty?
+                @goal = current_user.goals.build(params[:goals])
+                if @goal.save 
+                    redirect to "/goals"
+                else
+                    redirect to '/goals/new'
+                end
+            end
+        else
+            redirect to "/"
+        end
     end
+
 end
