@@ -29,4 +29,9 @@ class GoalsController < ApplicationController
         end
     end
 
+    get '/goals/:id' do
+        @goal = Goal.find(params[:id])
+        erb :'goals/show'
+    end
+
 end
