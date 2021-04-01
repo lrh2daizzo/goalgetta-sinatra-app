@@ -1,2 +1,9 @@
 <h1><%= @goal.title %></h1>
 <p><%= @goal.description %></p>
+
+<form action="/goals/<%= @goal.id %>/delete" method="POST">
+<input type="hidden" name="_method" id="hidden" value="delete">
+<input type="submit" value="Delete">
+</form>
+
+<a href="/goals/<%=@goal.id%>/edit">Edit Goal</a>
