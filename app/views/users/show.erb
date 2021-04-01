@@ -5,7 +5,7 @@
 
 <h3>Current Goals</h3>
 <% @user.goals.each do |goal| %>
-    <li><%= goal.title %></li>
+    <li><a href="/goals/<%=goal.id%>"><%= goal.title %></a></li>
 <% end %>
 <br>
 <%# delete form %>
