@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        # does not let user signup if any input empty 
+        # does not let user signup if any input is empty 
         if params[:username].empty? || params[:email].empty? || params[:password].empty?
             redirect to "/signup"
         else
@@ -20,11 +20,16 @@ class UsersController < ApplicationController
     end
 
     get '/login' do
-        erb :'users/login'
+        if !logged_in?
+            erb :'users/login'
+        else
+            redirect to '/goals'
+        end
     end
 
     post '/login' do
         @user = User.find_by(:username => params[:username])
+        
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
             redirect to "/users/#{@user.id}"
