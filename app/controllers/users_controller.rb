@@ -53,4 +53,5 @@ class UsersController < ApplicationController
        @user.delete 
        redirect to "/"
    end
+
 end
