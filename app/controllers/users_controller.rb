@@ -13,9 +13,16 @@ class UsersController < ApplicationController
         if params[:username].empty? || params[:email].empty? || params[:password].empty?
             redirect to "/signup"
         else
-            @user = User.create(params)
-            session[:id] = @user.id
-            redirect to "/users/#{@user.id}"
+            @user = User.new(params)
+
+            if User.all.any?{|u| u.username == @user.username}
+                # raise error saying username is taken
+                redirect to "/signup"
+            else   
+                @user.save 
+                session[:id] = @user.id
+                redirect to "/users/#{@user.id}"
+            end
         end
     end
 
