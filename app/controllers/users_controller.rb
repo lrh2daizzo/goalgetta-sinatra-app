@@ -18,7 +18,7 @@ class UsersController < ApplicationController
             @user = User.new(params)
 
             if User.all.any?{|u| u.username == @user.username}
-                flash[:message] = "Username already taken."
+                flash[:message] = "ERROR: Username already taken."
                 redirect to "/signup"
             else   
                 @user.save 
