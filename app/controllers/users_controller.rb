@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     post '/signup' do
         # does not let user signup if any input is empty 
         if params[:username].empty? || params[:email].empty? || params[:password].empty?
+            flash[:message] = "ERROR: Input boxes cannot be left empty."
             redirect to "/signup"
         else
             @user = User.new(params)
