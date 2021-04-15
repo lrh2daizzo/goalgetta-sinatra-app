@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    use Rack::Flash 
+
     get '/signup' do
         if !logged_in?
             erb :'users/signup'
