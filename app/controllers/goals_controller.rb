@@ -11,6 +11,8 @@ class GoalsController < ApplicationController
     get '/goals/new' do
         if logged_in?
             erb :'goals/new'
+        else
+            redirect to '/login'
         end
     end
 
