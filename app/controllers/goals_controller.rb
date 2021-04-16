@@ -21,7 +21,7 @@ class GoalsController < ApplicationController
 
     post '/goals' do
        if logged_in?
-            if params[:goals][:title] = ""
+            if params[:goals][:title] == ""
                 flash[:message] = "ERROR: Must have valid title."
                 redirect to '/goals/new'
             else
