@@ -10,7 +10,7 @@ Specs:
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying <!-- goals controller has routes for CRUD -->
 - [x] Ensure that users can't modify content created by other users <!-- logged_in? helper method keeps others from accessing another users account >
 - [x] Include user input validations <!-- use empty? method to check input >
-- [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)<!-- will add this shortly using flash message>
+- [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)<!-- will add this shortly using flash message>
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
