@@ -1,4 +1,7 @@
 class GoalsController < ApplicationController
+
+    use Rack::Flash 
+
     get '/goals' do
         if logged_in?
             @goals = current_user.goals 
@@ -18,7 +21,10 @@ class GoalsController < ApplicationController
 
     post '/goals' do
        if logged_in?
-            unless params[:goals][:title].empty?
+            if params[:goals][:title] = ""
+                flash[:message] = "ERROR: Must have valid title."
+                redirect to '/goals/new'
+            else
                 @goal = current_user.goals.build(params[:goals])
                 if @goal.save 
                     redirect to "/goals"

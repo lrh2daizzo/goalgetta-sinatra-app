@@ -1,3 +1,10 @@
+<div class="msg" style="color: red; float: right;">
+    <% if flash.has?(:message) %>
+        <%= flash[:message] %>
+    <% end %>
+</div>
+
+
 <h1>Create A New Goal</h1>
 <form action="/goals" method="POST">
     <label for="title">Title</label>
